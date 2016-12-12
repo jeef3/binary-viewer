@@ -2,16 +2,10 @@
 
 > Binary viewer
 
-## Installation
-
-```sh
-$ npm install --save heatpump
-```
-
 ## Usage
 
 ```sh
-node index.jef <file.csv>
+node index.js <file.csv>
 ```
 
 ## License
