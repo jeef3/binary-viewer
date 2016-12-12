@@ -37,13 +37,27 @@ console.log(`
 
     <style>
       body, table, tr, td { margin: 0; padding: 0; }
-      .cell { padding: 3px; height: 10px; width: 10px; border-bottom: solid 1px #333; }
+      .cell {
+        width: 10px;
+        padding: 3px;
+        height: 10px;
+
+        border-bottom: solid 1px #333;
+        border-right: solid 1px #666;
+      }
       .b0 { background: #999; }
       .b1 { background: #6c7; }
+
+      .cell:nth-child(8n) { border-right: solid 2px #333; }
     </style>
   </head>
   <body>
   <table cellpadding="0" cellspacing="0">
+    <tr>
+      ${commandsBytes[0].map((c, i) => (
+        (i % 8 === 0) ? `<td class="cell" colspan="8">${i / 8}</td>` : ''
+      )).join('')}
+    </tr>
     ${commandsBytes.map(c => (
       `<tr>${c.map(b => `<td class="cell b${b}">&nbsp;</td>`).join('')}</tr>`
     )).join('')}
